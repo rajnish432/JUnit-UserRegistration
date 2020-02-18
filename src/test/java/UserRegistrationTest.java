@@ -51,4 +51,16 @@ public class UserRegistrationTest {
         boolean result=validator.validatePhoneNumber("91 0987939628");
         Assert.assertEquals(false,result);
     }
+
+    @Test
+    public void givenPassword_WhenProper_ReturnTrue() {
+        boolean result=validator.validatePassword("rajnish432");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenPassword_WhenNotProper_ReturnFalse() {
+        boolean result=validator.validatePassword("rajnish");
+        Assert.assertEquals(false,result);
+    }
 }
