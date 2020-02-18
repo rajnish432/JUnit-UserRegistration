@@ -27,4 +27,16 @@ public class UserRegistrationTest {
         boolean result=validator.validateLastName("ka");
         Assert.assertEquals(false,result);
     }
+
+    @Test
+    public void givenEmailID_WhenProper_ReturnTrue() {
+        boolean result=validator.validateEmailID("abc.xyz@bl.co.in");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenEmailID_WhenNotProper_ReturnFalse() {
+        boolean result=validator.validateEmailID("abc.@bl.co.in");
+        Assert.assertEquals(false,result);
+    }
 }
