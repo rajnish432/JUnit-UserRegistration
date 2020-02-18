@@ -75,4 +75,16 @@ public class UserRegistrationTest {
         boolean result=validator.validatePasswordWithRule2("rajnish432");
         Assert.assertEquals(false,result);
     }
+
+    @Test
+    public void givenPassword_WhenContainsANumber_ReturnTrue() {
+        boolean result=validator.validatePasswordWithRule3("raJnish432");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsNoNumber_ReturnFalse() {
+        boolean result=validator.validatePasswordWithRule3("raJnishk");
+        Assert.assertEquals(false,result);
+    }
 }
