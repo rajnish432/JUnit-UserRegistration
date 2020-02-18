@@ -6,7 +6,8 @@ public class UserRegistration {
     String VALIDATE_PHONE_NUMBER="^[0-9]{1,3}[ ][1-9]{1}[0-9]{9}$";
     String VALIDATE_PASSWORD_WITH_RULE_1= "^(?=.[a-zA-Z0-9]).{8,}$";
     String VALIDATE_PASSWORD_WITH_RULE_2="^(?=.*[A-Z])(?=.[a-zA-Z0-9]).{8,}$";
-    String VALIDATE_PASSWORD_WITH_RULE_3="^(?=.*[0-9])(?=.*[A-Z])(?=.[a-zA-Z]).{8,}$";
+    String VALIDATE_PASSWORD_WITH_RULE_3= "^(?=.*[0-9])(?=.*[A-Z])(?=.[a-zA-Z]).{8,}$";
+    String VALIDATE_PASSWORD_WITH_RULE_4= "^(?=.*[A-Z])(?=.[a-zA-Z])(?=.*[0-9])(?=[^@|#|$|%|^|&|+|=]*[@|#|$|%|^|&|+|=][^@|#|$|%|^|&|+|=]*$).{8,}$";
     public boolean validateFirstName(String firstName)
     {
         if (firstName.matches(VALIDATE_NAME)) {
@@ -74,6 +75,16 @@ public class UserRegistration {
     public boolean validatePasswordWithRule3(String password)
     {
         if (password.matches(VALIDATE_PASSWORD_WITH_RULE_3)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean validatePasswordWithRule4(String password)
+    {
+        if (password.matches(VALIDATE_PASSWORD_WITH_RULE_4)) {
             return true;
         }
         else {

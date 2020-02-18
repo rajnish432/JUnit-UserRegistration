@@ -84,7 +84,19 @@ public class UserRegistrationTest {
 
     @Test
     public void givenPassword_WhenContainsNoNumber_ReturnFalse() {
-        boolean result=validator.validatePasswordWithRule3("raJnishk");
+        boolean result = validator.validatePasswordWithRule3("raJnishk");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsSingleSpecialCharacter_ReturnTrue() {
+        boolean result=validator.validatePasswordWithRule4("rajn@Sh432");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsMoreSpecialCharacter_ReturnFalse() {
+        boolean result=validator.validatePasswordWithRule4("raj#@iSh432");
         Assert.assertEquals(false,result);
     }
 }
