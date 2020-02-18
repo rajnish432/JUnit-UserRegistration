@@ -39,4 +39,16 @@ public class UserRegistrationTest {
         boolean result=validator.validateEmailID("abc.@bl.co.in");
         Assert.assertEquals(false,result);
     }
+
+    @Test
+    public void givenPhoneNumber_WhenProper_ReturnTrue() {
+        boolean result=validator.validatePhoneNumber("91 9987939628");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenNotProper_ReturnFalse() {
+        boolean result=validator.validatePhoneNumber("91 0987939628");
+        Assert.assertEquals(false,result);
+    }
 }
