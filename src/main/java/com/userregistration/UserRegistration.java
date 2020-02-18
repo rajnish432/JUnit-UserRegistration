@@ -5,6 +5,7 @@ public class UserRegistration {
     String VALIDATE_EMAIL= "^[a-z]{3,}[.|+|_|-]?[a-zA-Z0-9]{3,}?[.|+|_|-]{0}[@][a-zA-Z]{2,}[.][a-z]{2,3}[.]?[a-z]{2,3}?$";
     String VALIDATE_PHONE_NUMBER="^[0-9]{1,3}[ ][1-9]{1}[0-9]{9}$";
     String VALIDATE_PASSWORD_WITH_RULE_1= "^(?=.[a-zA-Z0-9]).{8,}$";
+    String VALIDATE_PASSWORD_WITH_RULE_2="^(?=.*[A-Z])(?=.[a-zA-Z0-9]).{8,}$";
     public boolean validateFirstName(String firstName)
     {
         if (firstName.matches(VALIDATE_NAME)) {
@@ -52,6 +53,16 @@ public class UserRegistration {
     public boolean validatePassword(String password)
     {
         if (password.matches(VALIDATE_PASSWORD_WITH_RULE_1)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean validatePasswordWithRule2(String password)
+    {
+        if (password.matches(VALIDATE_PASSWORD_WITH_RULE_2)) {
             return true;
         }
         else {

@@ -63,4 +63,16 @@ public class UserRegistrationTest {
         boolean result=validator.validatePassword("rajnish");
         Assert.assertEquals(false,result);
     }
+
+    @Test
+    public void givenPassword_WhenContainsUpperCase_ReturnTrue() {
+        boolean result=validator.validatePasswordWithRule2("raJnish432");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsNoUpperCase_ReturnFalse() {
+        boolean result=validator.validatePasswordWithRule2("rajnish432");
+        Assert.assertEquals(false,result);
+    }
 }
